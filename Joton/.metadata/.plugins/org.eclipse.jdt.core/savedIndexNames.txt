@@ -1,16 +1,2 @@
 INDEX VERSION 1.134+/home/mato/Documents/4A/S1/PDLA/PDLA/Joton/.metadata/.plugins/org.eclipse.jdt.core
-1673791367.index
-3241678890.index
-1392043684.index
-325287268.index
-1140932810.index
-2592655664.index
-3338151332.index
-572081109.index
-1257391391.index
-4120121693.index
-2949097923.index
-2863483298.index
 1865797976.index
-1813182317.index
-3413361460.index
