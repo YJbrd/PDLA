@@ -1,10 +1,18 @@
 package View;
 
+<<<<<<< HEAD
 //import Data.user;
 import javax.swing.*;  
 public class CreateProfile {  
 public static void main(String[] args) {  
 JFrame f=new JFrame();//creating instance of JFrame 
+=======
+import java.awt.Frame;
+
+public class CreateProfile extends Frame {
+	
+	
+>>>>>>> refs/remotes/origin/main
 
 JTextField Nusername= new JTextField("Enter name :");
 JTextField Nusersurname= new JTextField("Enter surname :");
