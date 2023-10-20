@@ -1,12 +1,12 @@
 package Data;
 public class user {
 
-    String email;
+    public static String email;
     String mdp;
 
-    String name;
-    String surname;
-    String phone_number;
+    public static String name;
+    public static String surname;
+    public static String phone_number;
 
     //List<> role;
 
