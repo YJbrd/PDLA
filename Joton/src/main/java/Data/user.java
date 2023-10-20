@@ -1,5 +1,5 @@
 package Data;
-public class User {
+public class user {
 
     String email;
     String mdp;
@@ -8,6 +8,6 @@ public class User {
     String surname;
     String phone_number;
 
-    List<> role;
+    //List<> role;
 
 }

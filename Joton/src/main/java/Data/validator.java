@@ -1,4 +1,4 @@
 package Data;
-public class Validator extends User {
+public class validator extends user {
     
 }

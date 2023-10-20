@@ -1,4 +1,4 @@
 package Data;
-public class Vulnerable extends User {
+public class vulnerable extends user {
 
 }
