@@ -1,6 +1,9 @@
 package View;
-import package Data; 
 
-public class CreateProfile {
+import java.awt.Frame;
+
+public class CreateProfile extends Frame {
+	
+	
 
 }
