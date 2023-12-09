@@ -2,15 +2,14 @@ package Controller.Connexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+public class Register {
 
-public class LogIn{
-	
-	public static boolean seConnecter(String nomUtilisateur, String motDePasse) {
-        String query = "SELECT * FROM User WHERE UserPseudo = ? AND UserPassword = ?";
+	// Méthode pour enregistrer un nouvel utilisateur
+    public static void enregistrerUtilisateur(String nomUtilisateur, String motDePasse) {
+        String query = "INSERT INTO User (UserPseudo, UserPassword) VALUES (?, ?)";
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
@@ -19,35 +18,32 @@ public class LogIn{
             preparedStatement.setString(2, motDePasse);
 
             // Exécuter la requête
-            ResultSet resultSet = preparedStatement.executeQuery();
+            int rowCount = preparedStatement.executeUpdate();
 
-            // Vérifier si l'utilisateur existe dans la base de données
-            if (resultSet.next()) {
-                System.out.println("Connexion réussie !");
-                return true;
+            // Vérifier si l'enregistrement a réussi
+            if (rowCount > 0) {
+                System.out.println("Enregistrement réussi !");
             } else {
-                System.out.println("Échec de la connexion. Veuillez vérifier vos informations d'identification.");
-                return false;
+                System.out.println("Échec de l'enregistrement. Veuillez réessayer.");
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Demander à l'utilisateur de saisir son nom d'utilisateur et son mot de passe
+        // Demander à l'utilisateur de saisir un nom d'utilisateur et un mot de passe
         System.out.print("Nom d'utilisateur : ");
         String nomUtilisateur = scanner.nextLine();
 
         System.out.print("Mot de passe : ");
         String motDePasse = scanner.nextLine();
 
-        // Appeler la fonction de connexion
-        seConnecter(nomUtilisateur, motDePasse);
+        // Appeler la fonction pour enregistrer l'utilisateur
+        enregistrerUtilisateur(nomUtilisateur, motDePasse);
 
         // Fermer le scanner
         scanner.close();
