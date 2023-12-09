@@ -1,6 +1,7 @@
 package Controller;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 
 public class ConnexionDataBase {
@@ -15,9 +16,9 @@ public class ConnexionDataBase {
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/myschema", "username", "password");	
 	}
 	
-	public getConnexion() {
+	public getConnexionDB() {
 		try(){
-			"projet_gei_num", 
+			.sql.getConnexion("024","projet_gei_num", "uB4yo1Uj");
 		}
 	}
 	
