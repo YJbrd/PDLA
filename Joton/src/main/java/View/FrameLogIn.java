@@ -9,6 +9,7 @@ public class FrameLogIn extends JFrame {
 
     private JTextField pseudoField;
     private JPasswordField motDePasseField;
+    private boolean con=false;
 
     public FrameLogIn() {
         setTitle("Page de Connexion");
@@ -29,9 +30,13 @@ public class FrameLogIn extends JFrame {
                 String pseudo = pseudoField.getText();
                 String motDePasse = new String(motDePasseField.getPassword());
 
-                Controller.Connexion.LogIn.seConnecter(pseudo, motDePasse);
+                con=Controller.Connexion.LogIn.seConnecter(pseudo, motDePasse);
                 String typeUtilisateur = Controller.Connexion.LogIn.getTypeUtilisateur(pseudo);
-                SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                if(con==true) {
+                    SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                }else {
+                	System.out.println("Votre mot de passe ou votre identifiant n'est pas valide");
+                }
 
             }
         });
