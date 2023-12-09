@@ -32,16 +32,7 @@ public class Welcome extends JFrame {
         contentPane.setLayout(new FlowLayout());
         contentPane.add( login );
         contentPane.add( register );
-        
-        //ActionListener controleur = new ActionListener(this); //controleur qui écoute tous les clics sur l'interface graphique
-
-        
-        //JCheckBox kindOfUser = new JCheckBox( "Type de profil" );
-        //contentPane.add( kindOfUser );
-        
-        //JTextField txtEditMe = new JTextField( "Edit me!" );
-        //txtEditMe.setPreferredSize( new Dimension( 120,  30 ) );
-        //contentPane.add( txtEditMe );
+       
         
         login.addActionListener(new ActionListener(){
 			@Override

@@ -13,7 +13,7 @@ public class FrameRegister extends JFrame {
 
     public FrameRegister() {
         setTitle("Page d'Enregistrement");
-        setSize(300, 200);
+        setSize(300, 230);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -23,9 +23,10 @@ public class FrameRegister extends JFrame {
         pseudoField = new JTextField(20);
         motDePasseField = new JPasswordField(20);
 
-        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Bï¿½nï¿½vole", "Validateur", "Vulnï¿½rable"});
+        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Bénévole", "Validateur", "Vulnérable"});
 
         JButton boutonEnregistrement = new JButton("S'enregistrer");
+        JButton boutonConnexion = new JButton("Se Connecter");
 
         boutonEnregistrement.addActionListener(new ActionListener() {
             @Override
@@ -37,9 +38,17 @@ public class FrameRegister extends JFrame {
                 Controller.Connexion.Register.enregistrerUtilisateur(pseudo, motDePasse, typeUtilisateur);
 
                 JOptionPane.showMessageDialog(FrameRegister.this,
-                        "Enregistrement rï¿½ussi!\nPseudo: " + pseudo + "\nMot de Passe: " + motDePasse + "\nType d'Utilisateur: " + typeUtilisateur,
+                        "Enregistrement réussi!\nPseudo: " + pseudo + "\nMot de Passe: " + motDePasse + "\nType d'Utilisateur: " + typeUtilisateur,
                         "Informations d'Enregistrement",
                         JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        boutonConnexion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            	SwingUtilities.invokeLater(() -> new FrameLogIn());
             }
         });
 
@@ -50,6 +59,7 @@ public class FrameRegister extends JFrame {
         panel.add(new JLabel("Type d'Utilisateur:"));
         panel.add(typeUtilisateurComboBox);
         panel.add(boutonEnregistrement);
+        panel.add(boutonConnexion);
 
         add(panel);
 
