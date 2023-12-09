@@ -36,9 +36,9 @@ public class FrameFormTask extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	String description = champDescription.getText();
                 String dateLimite = champDateLimite.getText();
-                String IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
+                int IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
                 System.out.println(IDUtilisateur);
-                //Controller.Connexion.LogIn.XXXXXXXXXXX(description, dateLimite,);
+                Model.Tasks.Task.createNewTask(description, IDUtilisateur, dateLimite);
 
             }
         });

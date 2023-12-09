@@ -40,16 +40,16 @@ public class Task {
 		public static void createNewTask(String description, int IDVuln, String dateLimite) {
 			int VulnerableID=(Integer) null;
 			
-		    String query = "INSERT INTO Task (Description, Status, DateLimite, Validation, IDVulnerable) VALUES (?, ?, IDLE,?)";
+		    String query = "INSERT INTO Task (ID_Proprio, Description, DateLimite, ) VALUES (?, ?, ?)";		//IDLE,
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 		        // Param�trer les valeurs
-		        preparedStatement.setString(1, description);
-		        preparedStatement.setInt(2, IDVuln);
-		        preparedStatement.setString(3,"idle");
-		        preparedStatement.setString(4, dateLimite);
+		        preparedStatement.setString(2, description);
+		        preparedStatement.setInt(1, IDVuln);
+		        //preparedStatement.setString(3,"idle");
+		        preparedStatement.setString(3, dateLimite);
 		        
 
 		        // Ex�cuter la requ�te

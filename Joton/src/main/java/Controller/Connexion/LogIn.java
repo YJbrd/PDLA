@@ -61,8 +61,8 @@ public class LogIn{
         return typeUtilisateur;
     }
     
-    public static String getIDUtilisateur(String nomUtilisateur) {
-        String IDUtilisateur = null;
+    public static int getIDUtilisateur(String nomUtilisateur) {
+        int IDUtilisateur = 0;
 
         String query = "SELECT UserID FROM User WHERE UserPseudo = ?";
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
@@ -75,7 +75,7 @@ public class LogIn{
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 // Si un enregistrement est trouvé, récupérer l' ID de l'utilisateru
                 if (resultSet.next()) {
-                    IDUtilisateur = resultSet.getString("UserID");
+                    IDUtilisateur = resultSet.getInt("UserID");
                 }
             }
 
