@@ -37,16 +37,16 @@ public class Task {
 	}
 	
 	// M�thode pour enregistrer une nouvelle tâche
-		public static void createNewTask(String description, int IDVuln, String dateLimite) {
+		public static void createNewTask(String description, int UserID, String dateLimite) {
 
-		    String query = "INSERT INTO Task (ID_Proprio, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
+		    String query = "INSERT INTO Task (ProprioID, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 		        // Param�trer les valeurs
 		        preparedStatement.setString(2, description);
-		        preparedStatement.setInt(1, IDVuln);
+		        preparedStatement.setInt(1, UserID);
 		        //preparedStatement.setString(3,"idle");
 		        preparedStatement.setString(3, dateLimite);
 		        
