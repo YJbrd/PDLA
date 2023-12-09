@@ -37,19 +37,20 @@ public class Task {
 	}
 	
 	// M�thode pour enregistrer une nouvelle tâche
-		public static void createNewTask(String description, String dateLimite, int IDVuln) {
+		public static void createNewTask(String description, int IDVuln, String dateLimite) {
 			int VulnerableID=(Integer) null;
 			
-		    String query = "INSERT INTO Task (Description, Status, DateLimite, Validation) VALUES (?, IDLE, ?, False, ?)";
+		    String query = "INSERT INTO Task (Description, Status, DateLimite, Validation, IDVulnerable) VALUES (?, ?, IDLE,?)";
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 		        // Param�trer les valeurs
 		        preparedStatement.setString(1, description);
-		        preparedStatement.setString(2,"idle");
-		        preparedStatement.setString(3, dateLimite);
-		        preparedStatement.setInt(4, IDVuln);
+		        preparedStatement.setInt(2, IDVuln);
+		        preparedStatement.setString(3,"idle");
+		        preparedStatement.setString(4, dateLimite);
+		        
 
 		        // Ex�cuter la requ�te
 		        int rowCount = preparedStatement.executeUpdate();
