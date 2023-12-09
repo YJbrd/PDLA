@@ -36,20 +36,28 @@ public class LogIn{
         }
     }
 
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        // Demander à l'utilisateur de saisir son nom d'utilisateur et son mot de passe
-//        System.out.print("Nom d'utilisateur : ");
-//        String nomUtilisateur = scanner.nextLine();
-//
-//        System.out.print("Mot de passe : ");
-//        String motDePasse = scanner.nextLine();
-//
-//        // Appeler la fonction de connexion
-//        seConnecter(nomUtilisateur, motDePasse);
-//
-//        // Fermer le scanner
-//        scanner.close();
-//   }
+    public static String getTypeUtilisateur(String nomUtilisateur) {
+        String typeUtilisateur = null;
+
+        String query = "SELECT UserType FROM User WHERE UserPseudo = ?";
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            // Paramétrer la valeur du nom d'utilisateur
+            preparedStatement.setString(1, nomUtilisateur);
+
+            // Exécuter la requête
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                // Si un enregistrement est trouvé, récupérer le type d'utilisateur
+                if (resultSet.next()) {
+                    typeUtilisateur = resultSet.getString("UserType");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return typeUtilisateur;
+    }
 }

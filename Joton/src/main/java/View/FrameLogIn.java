@@ -30,11 +30,9 @@ public class FrameLogIn extends JFrame {
                 String motDePasse = new String(motDePasseField.getPassword());
 
                 Controller.Connexion.LogIn.seConnecter(pseudo, motDePasse);
+                String typeUtilisateur = Controller.Connexion.LogIn.getTypeUtilisateur(pseudo);
+                SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
 
-                JOptionPane.showMessageDialog(FrameLogIn.this,
-                        "Pseudo: " + pseudo + "\nMot de Passe: " + motDePasse,
-                        "Informations de Connexion",
-                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
