@@ -23,7 +23,7 @@ public class FrameRegister extends JFrame {
         pseudoField = new JTextField(20);
         motDePasseField = new JPasswordField(20);
 
-        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Bénévole", "Validateur", "Vulnérable"});
+        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Benevole", "Validateur", "Vulnerable"});
 
         JButton boutonEnregistrement = new JButton("S'enregistrer");
         JButton boutonConnexion = new JButton("Se Connecter");
