@@ -9,7 +9,7 @@ import com.mysql.cj.x.protobuf.MysqlxExpect.Open.Condition;
 public class ConnexionDataBase {
 	
 	private Connection con = null; 
-	public Connection getConnexionDataBase() throws SQLException {
+	public static Connection getConnexionDataBase() throws SQLException {
 		
 		try{			
 			//charger le pilote JDBC 
@@ -25,10 +25,5 @@ public class ConnexionDataBase {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		}
-	
-	public Connection con() {
-		return this.con;
-	}
-	
+		}	
 }
