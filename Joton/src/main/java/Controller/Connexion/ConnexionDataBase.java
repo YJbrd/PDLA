@@ -19,8 +19,9 @@ public class ConnexionDataBase {
 				e.printStackTrace();
 			}
 			//étabblir la connexion
-			return (Connection)DriverManager.getConnection("jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/","projet_gei_024", "uB4yo1Uj");
+			con= (Connection)DriverManager.getConnection("jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/","projet_gei_024", "uB4yo1Uj");
 			System.out.println("Connecion établie avec succès");
+			return con;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
