@@ -1,4 +1,4 @@
-package Model.Users;
+package Model.Tasks;
 
 import java.util.Date;
 

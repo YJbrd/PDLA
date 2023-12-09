@@ -12,7 +12,7 @@ public class FrameLogIn extends JFrame {
 
     public FrameLogIn() {
         setTitle("Page de Connexion");
-        setSize(300, 160);
+        setSize(300, 150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -49,7 +49,5 @@ public class FrameLogIn extends JFrame {
         setVisible(true);
     }
 
-    /**public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new FrameLogIn());
-    }**/
+    
 }
