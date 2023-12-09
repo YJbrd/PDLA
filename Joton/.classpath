@@ -23,14 +23,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-=======
-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="optional" value="true"/>
-		</attributes>
-	</classpathentry>
->>>>>>> 37efd7b2a2000fc7edf07aa68c409dc3797675a5
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
