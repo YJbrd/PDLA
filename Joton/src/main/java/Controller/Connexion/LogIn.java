@@ -60,4 +60,29 @@ public class LogIn{
 
         return typeUtilisateur;
     }
+    
+    public static String getIDUtilisateur(String nomUtilisateur) {
+        String IDUtilisateur = null;
+
+        String query = "SELECT UserID FROM User WHERE UserPseudo = ?";
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            // Paramétrer la valeur du nom d'utilisateur
+            preparedStatement.setString(1, nomUtilisateur);
+
+            // Exécuter la requête
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                // Si un enregistrement est trouvé, récupérer l' ID de l'utilisateru
+                if (resultSet.next()) {
+                    IDUtilisateur = resultSet.getString("UserID");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return IDUtilisateur;
+    }
 }

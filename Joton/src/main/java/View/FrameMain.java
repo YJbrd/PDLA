@@ -32,7 +32,7 @@ public class FrameMain extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                SwingUtilities.invokeLater(() -> new FrameFormTask());
+                SwingUtilities.invokeLater(() -> new FrameFormTask(pseudoUtilisateur));
 
                 // Vous pouvez ouvrir une nouvelle fenêtre de création de demande, par exemple
             }

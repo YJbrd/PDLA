@@ -1,4 +1,5 @@
 package View;
+import Controller.Connexion.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,7 @@ public class FrameFormTask extends JFrame {
     private JTextField champDateLimite;
     private JButton boutonValider;
 
-    public FrameFormTask() {
+    public FrameFormTask(String pseudoUtilisateur) {
         setTitle("Formulaire de Demande d'Aide");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,8 +34,11 @@ public class FrameFormTask extends JFrame {
         boutonValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("envoi des données à la base TASk");
-            	// Fonction pour ajouter la demande à la base de donnée
+            	String description = champDescription.getText();
+                String dateLimite = champDateLimite.getText();
+                String IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
+                System.out.println(IDUtilisateur);
+                //Controller.Connexion.LogIn.XXXXXXXXXXX(description, dateLimite,);
 
             }
         });
@@ -49,7 +53,4 @@ public class FrameFormTask extends JFrame {
         setVisible(true);
     }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> new FrameFormTask());
-//    }
 }

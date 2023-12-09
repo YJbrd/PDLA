@@ -9,5 +9,5 @@ public class user {
     private static String password;
     private ArrayList<?> review;
     private String type;
-
+    
 }
