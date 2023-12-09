@@ -9,7 +9,7 @@ import com.mysql.cj.x.protobuf.MysqlxExpect.Open.Condition;
 public class ConnexionDataBase {
 	
 	private Connection con = null; 
-	public void getConnexionDataBase() throws SQLException {
+	public Connection getConnexionDataBase() throws SQLException {
 		
 		try{			
 			//charger le pilote JDBC 
@@ -19,7 +19,7 @@ public class ConnexionDataBase {
 				e.printStackTrace();
 			}
 			//étabblir la connexion
-			con=(Connection)DriverManager.getConnection("jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/","projet_gei_024", "uB4yo1Uj");
+			return (Connection)DriverManager.getConnection("jdbc:mysql://srv-bdens.insa-toulouse.fr:3306/","projet_gei_024", "uB4yo1Uj");
 			System.out.println("Connecion établie avec succès");
 		}catch(SQLException e) {
 			e.printStackTrace();
