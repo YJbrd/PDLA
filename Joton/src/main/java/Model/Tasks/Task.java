@@ -10,7 +10,7 @@ import Controller.Connexion.ConnexionDataBase;
 
 public class Task {
 	
-	private String description;
+	/**private String description;
 	private Status s;
 	private Date dateLimite;
 	private boolean validation;
@@ -29,7 +29,7 @@ public class Task {
 	
 	public Date getDateLimite() {
 		return this.dateLimite;
-	}
+	}**/
 	
 	public boolean isValidated() {
 		//ajouter conditions spécifiques
@@ -38,7 +38,6 @@ public class Task {
 	
 	// M�thode pour enregistrer une nouvelle tâche
 		public static void createNewTask(String description, int IDVuln, String dateLimite) {
-			int VulnerableID=(Integer) null;
 			
 		    String query = "INSERT INTO Task (ID_Proprio, Description, DateLimite, ) VALUES (?, ?, ?)";		//IDLE,
 		    
