@@ -27,7 +27,6 @@ public class FrameMain extends JFrame {
         
         //liste des demandes
         listeDemandesModel = new DefaultListModel<>();
-        listeDemandes = new JList<>(listeDemandesModel);
 
         // En-t�te de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));

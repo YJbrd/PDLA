@@ -42,7 +42,7 @@ public class DataUser {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-			listeDemandesModel.addElement(queryDemandes);
+			listeDemandesModel.addElement(queryResultat);
 		}
 		return listeDemandesModel;
 
