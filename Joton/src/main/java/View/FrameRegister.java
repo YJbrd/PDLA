@@ -23,7 +23,7 @@ public class FrameRegister extends JFrame {
         pseudoField = new JTextField(20);
         motDePasseField = new JPasswordField(20);
 
-        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Bénévole", "Validateur", "Vulnérable"});
+        typeUtilisateurComboBox = new JComboBox<>(new String[]{"Bï¿½nï¿½vole", "Validateur", "Vulnï¿½rable"});
 
         JButton boutonEnregistrement = new JButton("S'enregistrer");
 
@@ -37,7 +37,7 @@ public class FrameRegister extends JFrame {
                 Controller.Connexion.Register.enregistrerUtilisateur(pseudo, motDePasse, typeUtilisateur);
 
                 JOptionPane.showMessageDialog(FrameRegister.this,
-                        "Enregistrement réussi!\nPseudo: " + pseudo + "\nMot de Passe: " + motDePasse + "\nType d'Utilisateur: " + typeUtilisateur,
+                        "Enregistrement rï¿½ussi!\nPseudo: " + pseudo + "\nMot de Passe: " + motDePasse + "\nType d'Utilisateur: " + typeUtilisateur,
                         "Informations d'Enregistrement",
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -54,9 +54,5 @@ public class FrameRegister extends JFrame {
         add(panel);
 
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new FrameRegister());
     }
 }

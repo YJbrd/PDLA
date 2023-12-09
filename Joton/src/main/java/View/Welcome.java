@@ -9,6 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
@@ -46,10 +47,19 @@ public class Welcome extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
 				// TODO Auto-generated method stub
-				
+				SwingUtilities.invokeLater(() -> new FrameLogIn());
 			}			   
 		
         });
+        register.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				// TODO Auto-generated method stub
+				SwingUtilities.invokeLater(() -> new FrameRegister());
+			}			   
+		
+        });
+        
     }
     
     public static void main(String[] args) throws Exception {
