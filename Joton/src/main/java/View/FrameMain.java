@@ -12,14 +12,24 @@ public class FrameMain extends JFrame {
     private JButton boutonAjouterDemande;
     private DefaultListModel<String> listeDemandesModel;
     private JList<String> listeDemandes;
+    
+    
+    private JButton refresh = new JButton("refresh");
+    private JScrollPane scrollPane = new JScrollPane(listeDemandes);
+
+
 
     public FrameMain(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        //liste des demandes
+        listeDemandesModel = new DefaultListModel<>();
+        listeDemandes = new JList<>(listeDemandesModel);
 
-        // En-tête de la page
+        // En-tï¿½te de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         labelUtilisateur = new JLabel("Pseudo: " + pseudoUtilisateur);
         labelTypeUtilisateur = new JLabel("Type d'Utilisateur: " + typeUtilisateur);
@@ -34,14 +44,12 @@ public class FrameMain extends JFrame {
                 
                 SwingUtilities.invokeLater(() -> new FrameFormTask(pseudoUtilisateur));
 
-                // Vous pouvez ouvrir une nouvelle fenêtre de création de demande, par exemple
+                // Vous pouvez ouvrir une nouvelle fenï¿½tre de crï¿½ation de demande, par exemple
             }
         });
+        
+        
 
-        // Liste des demandes
-        listeDemandesModel = new DefaultListModel<>();
-        listeDemandes = new JList<>(listeDemandesModel);
-        JScrollPane scrollPane = new JScrollPane(listeDemandes);
 
         // Agencement global avec GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -58,11 +66,24 @@ public class FrameMain extends JFrame {
         gbc.gridy = 2;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        mainPanel.add(scrollPane, gbc);
+        mainPanel.add(refresh);
 
         add(mainPanel);
 
         setVisible(true);
+        
+      //Bouton qui affiche la liste des demandes en cours
+        refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
+                listeDemandesModel=Controller.DataUser.DataUser.getTasksList(IDUtilisateur);
+                scrollPane = new JScrollPane(listeDemandes);
+            }
+        });
+        
+        mainPanel.add(scrollPane, gbc);
+
     }
 
 }
