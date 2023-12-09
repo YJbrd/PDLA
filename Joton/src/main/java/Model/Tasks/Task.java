@@ -38,12 +38,8 @@ public class Task {
 	
 	// M�thode pour enregistrer une nouvelle tâche
 		public static void createNewTask(String description, int IDVuln, String dateLimite) {
-			
-<<<<<<< HEAD
+
 		    String query = "INSERT INTO Task (ID_Proprio, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
-=======
-		    String query = "INSERT INTO Task (ID_Proprio, Description, DateLimite ) VALUES (?, ?, ?)";		//IDLE,
->>>>>>> 3567631e37066b090e4b6ae59adc7aa35e8e8f85
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
