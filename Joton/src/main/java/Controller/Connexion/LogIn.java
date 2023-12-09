@@ -36,20 +36,20 @@ public class LogIn{
         }
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Demander à l'utilisateur de saisir son nom d'utilisateur et son mot de passe
-        System.out.print("Nom d'utilisateur : ");
-        String nomUtilisateur = scanner.nextLine();
-
-        System.out.print("Mot de passe : ");
-        String motDePasse = scanner.nextLine();
-
-        // Appeler la fonction de connexion
-        seConnecter(nomUtilisateur, motDePasse);
-
-        // Fermer le scanner
-        scanner.close();
-    }
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//
+//        // Demander à l'utilisateur de saisir son nom d'utilisateur et son mot de passe
+//        System.out.print("Nom d'utilisateur : ");
+//        String nomUtilisateur = scanner.nextLine();
+//
+//        System.out.print("Mot de passe : ");
+//        String motDePasse = scanner.nextLine();
+//
+//        // Appeler la fonction de connexion
+//        seConnecter(nomUtilisateur, motDePasse);
+//
+//        // Fermer le scanner
+//        scanner.close();
+//   }
 }
