@@ -1,6 +1,6 @@
 package Controller;
 
-public class Subscribe {
+public class Register {
 	
 
 }
