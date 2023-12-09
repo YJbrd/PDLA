@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class LogIn{
 	
 	public static boolean seConnecter(String nomUtilisateur, String motDePasse) {
-        String query = "SELECT * FROM utilisateurs WHERE nom_utilisateur = ? AND mot_de_passe = ?";
-        try (Connection connection = getConnexionDataBase();
+        String query = "SELECT * FROM User WHERE nom_utilisateur = ? AND mot_de_passe = ?";
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             // Paramétrer les valeurs
