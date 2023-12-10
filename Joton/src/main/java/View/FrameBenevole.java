@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Controller.Connexion.*;
 import Controller.DataUser.*;
+import Model.Tasks.*;
 
 public class FrameBenevole extends JFrame {
 
@@ -14,8 +15,11 @@ public class FrameBenevole extends JFrame {
     private DefaultListModel<String> listeDemandesModel;
     private JList<String> listeDemandes;
 
-    private JButton refresh = new JButton("refresh");
+    private JButton refresh = new JButton("Refresh");
     private JScrollPane scrollPane = new JScrollPane(listeDemandes);
+
+    private JTextField userInputField;
+    private JButton validationButton;
 
     public FrameBenevole(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
@@ -33,6 +37,14 @@ public class FrameBenevole extends JFrame {
         headerPanel.add(labelUtilisateur);
         headerPanel.add(labelTypeUtilisateur);
 
+        // Ajout d'une entrée utilisateur en haut
+        JPanel userInputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        userInputField = new JTextField(10);
+        validationButton = new JButton("Valider");
+        userInputPanel.add(new JLabel("Entrée Utilisateur:"));
+        userInputPanel.add(userInputField);
+        userInputPanel.add(validationButton);
+
         // Agencement global avec GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -43,11 +55,13 @@ public class FrameBenevole extends JFrame {
 
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.CENTER;
+        mainPanel.add(userInputPanel, gbc);
 
         gbc.gridy = 2;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         mainPanel.add(refresh);
+
 
         add(mainPanel);
 
@@ -67,6 +81,16 @@ public class FrameBenevole extends JFrame {
                 System.out.println(listeDemandesModel);
                 listeDemandes.setModel(listeDemandesModel);
                 scrollPane.setViewportView(listeDemandes);
+            }
+        });
+        
+        validationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userInput = userInputField.getText();
+                int numTask = Integer.parseInt(userInput);
+                String StatusTask = "Done";
+                Task.updateStatus(numTask, StatusTask);
             }
         });
 

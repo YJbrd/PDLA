@@ -36,7 +36,7 @@ public class Task {
 		return false;
 	}
 	
-	// Méthode pour enregistrer une nouvelle tÃ¢che
+	// Méthode pour enregistrer une nouvelle tâche
 		public static void createNewTask(String description, int UserID, String dateLimite) {
 
 		    String query = "INSERT INTO Task (ProprioID, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
@@ -65,4 +65,29 @@ public class Task {
 		        e.printStackTrace();
 		    }
 		}
+		
+		public static void updateStatus(int taskId, String newStatus) {
+	        String query = "UPDATE Task SET Status = ? WHERE ID_Task = ?";
+
+	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+	             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	            // Paramétrer les valeurs
+	            preparedStatement.setString(1, newStatus);
+	            preparedStatement.setInt(2, taskId);
+
+	            // Exécuter la requête de mise à jour
+	            int rowCount = preparedStatement.executeUpdate();
+
+	            // Vérifier si la mise à jour a réussi
+	            if (rowCount > 0) {
+	                System.out.println("Mise à jour du status réussie !");
+	            } else {
+	                System.out.println("Échec de la mise à jour du status. La demande pourrait ne pas exister.");
+	            }
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
 }

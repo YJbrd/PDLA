@@ -53,11 +53,13 @@ public class DataUsers {
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)){;
 
-            // Exécuter la requï¿½te
+            // Exécuter la requête
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 
                 while (resultSet.next()) {
-	            	queryResultat = resultSet.getString("Description");
+	            	String desc = resultSet.getString("Description");
+	            	int num = resultSet.getInt("ID_Task"); 
+	            	queryResultat = num +" - " + desc;
 	            	System.out.println(queryResultat);
                 	listeDemandesModel.addElement(queryResultat);
                 }
@@ -67,6 +69,26 @@ public class DataUsers {
     		e.printStackTrace();
         }
 		return listeDemandesModel;
+    }
+	
+	public static int getTaskCount(){
+		
+		String queryCount = "SELECT COUNT(*) FROM Task";
+
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryCount)){;
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                
+            	if (resultSet.next()) {
+                    return resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+        }
+		return 0;
 
     }
 	
