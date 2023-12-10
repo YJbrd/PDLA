@@ -21,7 +21,7 @@ public class DataUser {
 		
 		listeDemandesModel = null;
 		
-		for (int x=0; queryResultat.equals(null); x++) {
+		do{
 			queryDemandes = "SELECT * FROM Task WHERE ProprioID = ?";
 	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 	             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)) {
@@ -33,7 +33,7 @@ public class DataUser {
 	
 	            // Ex�cuter la requ�te
 	            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-	                // Si un enregistrement est trouv�, r�cup�rer le type d'utilisateur
+	                // Si un enregistrement est trouv�, r�cup�rer les tâches enregistrées
 	                if (resultSet.next()) {
 	                	queryResultat = resultSet.getString("Description");
 	                	
@@ -44,7 +44,7 @@ public class DataUser {
 	            e.printStackTrace();
 	        }
 			listeDemandesModel.addElement(queryResultat);
-		}
+		}while(queryResultat.isEmpty());
 		return listeDemandesModel;
 
 	}
