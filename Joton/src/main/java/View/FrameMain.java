@@ -31,6 +31,7 @@ public class FrameMain extends JFrame {
         
         //liste des demandes
         listeDemandesModel = new DefaultListModel<>();
+        listeDemandes= new JList<>();
 
         // En-t�te de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -78,6 +79,9 @@ public class FrameMain extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int IDUtilisateur = LogIn.getIDUtilisateur(pseudoUtilisateur);
                 listeDemandesModel= DataUsers.getTasksList(IDUtilisateur);
+                for(int i=0; i < listeDemandesModel.size(); i++){
+                	listeDemandes.(i, listeDemandesModel.get(i));
+                }
                 scrollPane = new JScrollPane(listeDemandes);
             }
         });

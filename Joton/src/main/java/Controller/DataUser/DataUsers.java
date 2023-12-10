@@ -6,48 +6,49 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 import Controller.Connexion.ConnexionDataBase;
 
 public class DataUsers {
 	
 	private static String queryDemandes= null;
-	private static String queryResultat= "Vous n'avez enregistré aucune demande d'aide";
+	private static String queryResultat= "Vous n'avez enregistrï¿½ aucune demande d'aide";
 
 	
-	private static DefaultListModel<String> listeDemandesModel;
+	private static DefaultListModel<String> listeDemandesModel=new DefaultListModel<>();
 
 	public static DefaultListModel<String> getTasksList(int IDUser){
+				
 		
-		listeDemandesModel = null;
-		
-		do{
-			queryDemandes = "SELECT * FROM Task WHERE ProprioID = ?";
-	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
-	             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)) {
-	
-	            // Paramétrer la valeur du nom d'utilisateur
-	            preparedStatement.setInt(2, IDUser);
-	            //preparedStatement.setInt(1, x);
+		queryDemandes = "SELECT * FROM Task WHERE ProprioID = ?";
 
-	
-	            // Exécuter la requête
-	            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-	                // Si un enregistrement est trouvé, récupérer les tâches enregistrées
-	                if (resultSet.next()) {
-	                	queryResultat = resultSet.getString("Description");
-	                	
-	                }
-	            }
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)){;
+	        // Paramï¿½trer la valeur du nom d'utilisateur
+	        preparedStatement.setInt(1, IDUser);
 
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
-			listeDemandesModel.addElement(queryResultat);
-		}while(queryResultat.isEmpty());
+
+            // Exï¿½cuter la requï¿½te
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                
+                while (resultSet.next()) {
+                	// Si un enregistrement est trouvï¿½, rï¿½cupï¿½rer les tï¿½ches enregistrï¿½es
+	            	queryResultat = resultSet.getString("Description");
+	            	System.out.println(queryResultat);
+                	listeDemandesModel.addElement(queryResultat);
+                }
+            }
+        } catch (SQLException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+        }
 		return listeDemandesModel;
 
-	}
-	
-
+    }	
+       
 }
+
+        
+
+	
