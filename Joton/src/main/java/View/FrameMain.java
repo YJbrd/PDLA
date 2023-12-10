@@ -1,11 +1,9 @@
 package View;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.ModuleLayer.Controller;
-
 import Controller.Connexion.*;
 import Controller.DataUser.*;
 
@@ -17,11 +15,8 @@ public class FrameMain extends JFrame {
     private DefaultListModel<String> listeDemandesModel;
     private JList<String> listeDemandes;
     
-    
     private JButton refresh = new JButton("refresh");
-    private JScrollPane scrollPane = new JScrollPane(listeDemandes);
-
-
+    private JScrollPane scrollPane;
 
     public FrameMain(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
@@ -31,7 +26,8 @@ public class FrameMain extends JFrame {
         
         //liste des demandes
         listeDemandesModel = new DefaultListModel<>();
-        listeDemandes= new JList<>();
+        
+
 
         // En-t�te de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -45,12 +41,9 @@ public class FrameMain extends JFrame {
         boutonAjouterDemande.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
                 SwingUtilities.invokeLater(() -> new FrameFormTask(pseudoUtilisateur));
-
             }
         });
-        
 
         // Agencement global avec GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -70,6 +63,10 @@ public class FrameMain extends JFrame {
         mainPanel.add(refresh);
 
         add(mainPanel);
+        mainPanel.add(scrollPane);
+        
+        JScrollPane scrollPane = new JScrollPane(listeDemandes);
+
 
         setVisible(true);
         
@@ -79,15 +76,10 @@ public class FrameMain extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int IDUtilisateur = LogIn.getIDUtilisateur(pseudoUtilisateur);
                 listeDemandesModel= DataUsers.getTasksList(IDUtilisateur);
-                for(int i=0; i < listeDemandesModel.size(); i++){
-                	listeDemandes.(i, listeDemandesModel.get(i));
-                }
-                scrollPane = new JScrollPane(listeDemandes);
+                listeDemandes= new JList<>(listeDemandesModel);
+                scrollPane.add(listeDemandes);
             }
         });
-        
         mainPanel.add(scrollPane, gbc);
-
     }
-
 }
