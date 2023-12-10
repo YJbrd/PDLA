@@ -34,7 +34,7 @@ public class FrameLogIn extends JFrame {
                 String typeUtilisateur = Controller.Connexion.LogIn.getTypeUtilisateur(pseudo);
                 if(con==true) {
                 	if ("Vulnerable".equals(typeUtilisateur)) {
-                		SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                		SwingUtilities.invokeLater(() -> new FrameVulnerable(pseudo, typeUtilisateur));
                     } else if ("Benevole".equals(typeUtilisateur)) {
                     	SwingUtilities.invokeLater(() -> new FrameBenevole(pseudo, typeUtilisateur));
                     } else if ("Validateur".equals(typeUtilisateur)) {

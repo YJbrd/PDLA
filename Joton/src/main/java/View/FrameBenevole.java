@@ -21,6 +21,7 @@ public class FrameBenevole extends JFrame {
     private JTextField userInputField;
     private JButton validationButton;   
     private JComboBox<String> dropdownMenu;
+    private JButton proposeAideButton;
 
 
     public FrameBenevole(String pseudoUtilisateur, String typeUtilisateur) {
@@ -39,17 +40,18 @@ public class FrameBenevole extends JFrame {
         headerPanel.add(labelUtilisateur);
         headerPanel.add(labelTypeUtilisateur);
 
-        // Ajout d'une entrée utilisateur en haut
+        // Ajout des entrées utilisateur
         JPanel userInputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         userInputField = new JTextField(10);
         validationButton = new JButton("Valider");
         dropdownMenu = new JComboBox<>(new String[]{"Effectuée", "En cours", "Non effectuable"});
+        proposeAideButton = new JButton("Proposer son aide");
 
         userInputPanel.add(new JLabel("Entrée Utilisateur:"));
         userInputPanel.add(userInputField);
         userInputPanel.add(dropdownMenu);
         userInputPanel.add(validationButton);
-
+        userInputPanel.add(proposeAideButton);
 
         
         // Agencement global avec GridBagLayout
@@ -102,6 +104,13 @@ public class FrameBenevole extends JFrame {
             }
         });
 
+        proposeAideButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        
         mainPanel.add(scrollPane, gbc);
     }
 }

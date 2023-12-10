@@ -6,14 +6,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FrameFormTask extends JFrame {
+public class FrameFormProp extends JFrame {
 
     private JTextArea champDescription;
     private JTextField champDateLimite;
     private JButton boutonValider;
 
-    public FrameFormTask(String pseudoUtilisateur) {
-        setTitle("Formulaire de Demande d'Aide");
+    public FrameFormProp(String pseudoUtilisateur) {
+        setTitle("Formulaire de Proposition d'Aide");
         setSize(400, 300);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -38,7 +38,7 @@ public class FrameFormTask extends JFrame {
                 String dateLimite = champDateLimite.getText();
                 int IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
                 System.out.println(IDUtilisateur);
-                Model.Tasks.Task.createNewTask(description, IDUtilisateur, dateLimite);
+                Model.Tasks.Task.createNewProp(description, IDUtilisateur);
 
             }
         });

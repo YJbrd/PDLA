@@ -18,11 +18,9 @@ public class DataUsers {
 	
 	private static DefaultListModel<String> listeDemandesModel=new DefaultListModel<>();
 
-	public static DefaultListModel<String> getTasksList(int IDUser){
-				
+	public static DefaultListModel<String> getTasksList(int IDUser){			
 		
 		queryDemandes = "SELECT * FROM Task WHERE ProprioID = ?";
-
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)){;
 	        // Paramétrer la valeur du nom d'utilisateur
@@ -33,7 +31,12 @@ public class DataUsers {
                 
                 while (resultSet.next()) {
                 	// Si un enregistrement est trouvé, récupérer les tâches enregistrées
-	            	queryResultat = resultSet.getString("Description");
+                	
+                	String desc = resultSet.getString("Description");
+	            	int num = resultSet.getInt("ID_Task"); 
+	            	String status = resultSet.getString("Status");
+	            	String valid = resultSet.getString("Validation");
+	            	queryResultat = num + " - " + valid + " - " + status + " - " + desc;
 	            	System.out.println(queryResultat);
                 	listeDemandesModel.addElement(queryResultat);
                 }

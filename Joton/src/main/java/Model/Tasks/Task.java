@@ -10,45 +10,25 @@ import Controller.Connexion.ConnexionDataBase;
 
 public class Task {
 	
-	/**private String description;
-	private Status s;
-	private Date dateLimite;
-	private boolean validation;
-	
-	public Task() {
-		
-	}
-	
-	public String getDescription() {
-		return this.description;
-	}
-	
-	public Status getStatus() {
-		return this.s;
-	}
-	
-	public Date getDateLimite() {
-		return this.dateLimite;
-	}**/
-	
-	public boolean isValidated() {
-		//ajouter conditions spécifiques
-		return false;
-	}
+//	public boolean isValidated() {
+//		//ajouter conditions spécifiques
+//		return false;
+//	}
 	
 	// Méthode pour enregistrer une nouvelle tâche
 		public static void createNewTask(String description, int UserID, String dateLimite) {
 
-		    String query = "INSERT INTO Task (ProprioID, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
+		    String query = "INSERT INTO Task (ProprioID, Status, Description, DateLimite, Validation) VALUES (?, ?, ?, ?, ?)";	
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 		        // Paramétrer les valeurs
-		        preparedStatement.setString(2, description);
 		        preparedStatement.setInt(1, UserID);
-		        //preparedStatement.setString(3,"idle");
-		        preparedStatement.setString(3, dateLimite);
+		        preparedStatement.setString(2,"Non effectuée");
+		        preparedStatement.setString(3, description);
+		        preparedStatement.setString(4, dateLimite);
+		        preparedStatement.setString(5,"En attente");
 		        
 
 		        // Exécuter la requête

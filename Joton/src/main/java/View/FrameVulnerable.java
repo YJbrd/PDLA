@@ -9,7 +9,7 @@ import java.lang.ModuleLayer.Controller;
 import Controller.Connexion.*;
 import Controller.DataUser.*;
 
-public class FrameMain extends JFrame {
+public class FrameVulnerable extends JFrame {
 
     private JLabel labelUtilisateur;
     private JLabel labelTypeUtilisateur;
@@ -23,7 +23,7 @@ public class FrameMain extends JFrame {
 
 
 
-    public FrameMain(String pseudoUtilisateur, String typeUtilisateur) {
+    public FrameVulnerable(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
