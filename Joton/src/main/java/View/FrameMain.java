@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.ModuleLayer.Controller;
 
+import Controller.Connexion.*;
+import Controller.DataUser.*;
+
 public class FrameMain extends JFrame {
 
     private JLabel labelUtilisateur;
@@ -73,8 +76,8 @@ public class FrameMain extends JFrame {
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
-                listeDemandesModel=Controller.DataUser.DataUser.getTasksList(IDUtilisateur);
+                int IDUtilisateur = LogIn.getIDUtilisateur(pseudoUtilisateur);
+                listeDemandesModel= DataUsers.getTasksList(IDUtilisateur);
                 scrollPane = new JScrollPane(listeDemandes);
             }
         });

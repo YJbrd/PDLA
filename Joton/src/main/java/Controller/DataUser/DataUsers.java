@@ -9,7 +9,7 @@ import javax.swing.DefaultListModel;
 
 import Controller.Connexion.ConnexionDataBase;
 
-public class DataUser {
+public class DataUsers {
 	
 	private static String queryDemandes= null;
 	private static String queryResultat= "Vous n'avez enregistré aucune demande d'aide";
