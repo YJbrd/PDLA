@@ -12,7 +12,7 @@ import Controller.Connexion.ConnexionDataBase;
 public class DataUsers {
 	
 	private static String queryDemandes= null;
-	private static String queryResultat= "Vous n'avez enregistrÃ© aucune demande d'aide";
+	private static String queryResultat= "Vous n'avez enregistré aucune demande d'aide";
 
 	
 	private static DefaultListModel<String> listeDemandesModel;
@@ -26,14 +26,14 @@ public class DataUsers {
 	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 	             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)) {
 	
-	            // Paramï¿½trer la valeur du nom d'utilisateur
+	            // Paramétrer la valeur du nom d'utilisateur
 	            preparedStatement.setInt(2, IDUser);
 	            //preparedStatement.setInt(1, x);
 
 	
-	            // Exï¿½cuter la requï¿½te
+	            // Exécuter la requête
 	            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-	                // Si un enregistrement est trouvï¿½, rï¿½cupï¿½rer les tÃ¢ches enregistrÃ©es
+	                // Si un enregistrement est trouvé, récupérer les tâches enregistrées
 	                if (resultSet.next()) {
 	                	queryResultat = resultSet.getString("Description");
 	                	

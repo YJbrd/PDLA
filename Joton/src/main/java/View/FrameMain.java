@@ -6,11 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.ModuleLayer.Controller;
 
-<<<<<<< HEAD
 import Controller.Connexion.*;
 import Controller.DataUser.*;
-=======
->>>>>>> f11a6a178987e861a645094bee90f750605455f8
 
 public class FrameMain extends JFrame {
 
