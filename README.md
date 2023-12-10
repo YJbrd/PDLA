@@ -4,6 +4,7 @@
 
 Bienvenue dans Joton, une application conçue pour faciliter l'assistance bénévole aux personnes dans le besoin. 💻 <br>
 Cette application vise à connecter les bénévoles aux individus qui nécessitent une aide particulière, que ce soit pour des tâches quotidiennes, des rendez-vous médicaux, ou simplement pour offrir un soutien amical. 🤝 <br>
+<br>
 Bonne découverte à vous ! <br>
 Jobard Yann & Maton Elisabeth
 
