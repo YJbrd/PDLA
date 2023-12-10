@@ -59,7 +59,8 @@ public class DataUsers {
                 while (resultSet.next()) {
 	            	String desc = resultSet.getString("Description");
 	            	int num = resultSet.getInt("ID_Task"); 
-	            	queryResultat = num +" - " + desc;
+	            	String status = resultSet.getString("Status");
+	            	queryResultat = num +" - " + status + " - " + desc;
                 	listeDemandesModel.addElement(queryResultat);
                 }
             }
