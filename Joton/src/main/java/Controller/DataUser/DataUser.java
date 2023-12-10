@@ -22,13 +22,13 @@ public class DataUser {
 		listeDemandesModel = null;
 		
 		for (int x=0; queryResultat.equals(null); x++) {
-			queryDemandes = "SELECT * FROM Task WHERE ID_Task = ? AND ID_User = ?";
+			queryDemandes = "SELECT * FROM Task WHERE ProprioID = ?";
 	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 	             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)) {
 	
 	            // Param�trer la valeur du nom d'utilisateur
 	            preparedStatement.setInt(2, IDUser);
-	            preparedStatement.setInt(1, x);
+	            //preparedStatement.setInt(1, x);
 
 	
 	            // Ex�cuter la requ�te
@@ -36,6 +36,7 @@ public class DataUser {
 	                // Si un enregistrement est trouv�, r�cup�rer le type d'utilisateur
 	                if (resultSet.next()) {
 	                	queryResultat = resultSet.getString("Description");
+	                	
 	                }
 	            }
 

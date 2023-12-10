@@ -29,7 +29,7 @@ public class FrameMain extends JFrame {
         //liste des demandes
         listeDemandesModel = new DefaultListModel<>();
 
-        // En-tête de la page
+        // En-tï¿½te de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         labelUtilisateur = new JLabel("Pseudo: " + pseudoUtilisateur);
         labelTypeUtilisateur = new JLabel("Type d'Utilisateur: " + typeUtilisateur);
