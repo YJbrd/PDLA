@@ -3,6 +3,9 @@
   <groupId>fr.insa.maven.demo</groupId>
   <artifactId>Joton</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+	<configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
   <dependencies>
 	<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 	<dependency>
