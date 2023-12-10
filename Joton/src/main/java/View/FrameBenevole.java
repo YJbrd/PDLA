@@ -19,7 +19,9 @@ public class FrameBenevole extends JFrame {
     private JScrollPane scrollPane = new JScrollPane(listeDemandes);
 
     private JTextField userInputField;
-    private JButton validationButton;
+    private JButton validationButton;   
+    private JComboBox<String> dropdownMenu;
+
 
     public FrameBenevole(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
@@ -41,10 +43,15 @@ public class FrameBenevole extends JFrame {
         JPanel userInputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         userInputField = new JTextField(10);
         validationButton = new JButton("Valider");
+        dropdownMenu = new JComboBox<>(new String[]{"Effectuée", "En cours", "Non effectuable"});
+
         userInputPanel.add(new JLabel("Entrée Utilisateur:"));
         userInputPanel.add(userInputField);
+        userInputPanel.add(dropdownMenu);
         userInputPanel.add(validationButton);
 
+
+        
         // Agencement global avec GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -89,7 +96,9 @@ public class FrameBenevole extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String userInput = userInputField.getText();
                 int numTask = Integer.parseInt(userInput);
-                String StatusTask = "Done";
+                
+                String selectedOption = (String) dropdownMenu.getSelectedItem();
+                String StatusTask = selectedOption;
                 Task.updateStatus(numTask, StatusTask);
             }
         });
