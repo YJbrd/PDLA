@@ -43,10 +43,8 @@ public class FrameVulnerable extends JFrame {
         boutonAjouterDemande = new JButton("Ajouter une Demande");
         boutonAjouterDemande.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                
+            public void actionPerformed(ActionEvent e) {               
                 SwingUtilities.invokeLater(() -> new FrameFormTask(pseudoUtilisateur));
-
             }
         });
         

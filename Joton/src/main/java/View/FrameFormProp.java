@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 public class FrameFormProp extends JFrame {
 
     private JTextArea champDescription;
-    private JTextField champDateLimite;
     private JButton boutonValider;
 
     public FrameFormProp(String pseudoUtilisateur) {
@@ -26,26 +25,21 @@ public class FrameFormProp extends JFrame {
         champDescription.setLineWrap(true);
         JScrollPane scrollPane = new JScrollPane(champDescription);
 
-        // Champ de date
-        champDateLimite = new JTextField();
-
         // Bouton de validation
         boutonValider = new JButton("Valider");
         boutonValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	String description = champDescription.getText();
-                String dateLimite = champDateLimite.getText();
                 int IDUtilisateur = Controller.Connexion.LogIn.getIDUtilisateur(pseudoUtilisateur);
                 System.out.println(IDUtilisateur);
-                Model.Tasks.Task.createNewProp(description, IDUtilisateur);
+                Model.Tasks.Prop.createNewProp(description, IDUtilisateur);
 
             }
         });
 
         // Ajout des composants au panel
         panel.add(scrollPane);
-        panel.add(champDateLimite);
         panel.add(boutonValider);
 
         add(panel);

@@ -107,6 +107,7 @@ public class FrameBenevole extends JFrame {
         proposeAideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> new FrameFormProp(pseudoUtilisateur));
 
             }
         });
