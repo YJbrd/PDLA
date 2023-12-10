@@ -3,7 +3,6 @@ package Controller.Connexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class Register {
 
@@ -33,20 +32,4 @@ public class Register {
 	    }
 	}
 
-//    public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        // Demander à l'utilisateur de saisir un nom d'utilisateur et un mot de passe
-//        System.out.print("Nom d'utilisateur : ");
-//        String nomUtilisateur = scanner.nextLine();
-//
-//        System.out.print("Mot de passe : ");
-//        String motDePasse = scanner.nextLine();
-//
-//        // Appeler la fonction pour enregistrer l'utilisateur
-//        enregistrerUtilisateur(nomUtilisateur, motDePasse);
-//
-//        // Fermer le scanner
-//        scanner.close();
-//    }
 }

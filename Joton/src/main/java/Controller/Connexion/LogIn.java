@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 
 public class LogIn{
@@ -14,19 +13,19 @@ public class LogIn{
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            // Paramï¿½trer les valeurs
+            // Paramétrer les valeurs
             preparedStatement.setString(1, nomUtilisateur);
             preparedStatement.setString(2, motDePasse);
 
-            // Exï¿½cuter la requï¿½te
+            // Exécuter la requête
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Vï¿½rifier si l'utilisateur existe dans la base de donnï¿½es
+            // Vérifier si l'utilisateur existe dans la base de données
             if (resultSet.next()) {
-                System.out.println("Connexion rï¿½ussie !");
+                System.out.println("Connexion réussie !");
                 return true;
             } else {
-                System.out.println("ï¿½chec de la connexion. Veuillez vï¿½rifier vos informations d'identification.");
+                System.out.println("Échec de la connexion. Veuillez vérifier vos informations d'identification.");
                 return false;
             }
 
@@ -43,12 +42,12 @@ public class LogIn{
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            // Paramï¿½trer la valeur du nom d'utilisateur
+            // Paramétrer la valeur du nom d'utilisateur
             preparedStatement.setString(1, nomUtilisateur);
 
-            // Exï¿½cuter la requï¿½te
+            // Exécuter la requête
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                // Si un enregistrement est trouvï¿½, rï¿½cupï¿½rer le type d'utilisateur
+                // Si un enregistrement est trouvé, récupérer le type d'utilisateur
                 if (resultSet.next()) {
                     typeUtilisateur = resultSet.getString("UserType");
                 }
@@ -68,12 +67,12 @@ public class LogIn{
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            // Paramï¿½trer la valeur du nom d'utilisateur
+            // Paramétrer la valeur du nom d'utilisateur
             preparedStatement.setString(1, nomUtilisateur);
 
-            // Exï¿½cuter la requï¿½te
+            // Exécuter la requête
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                // Si un enregistrement est trouvï¿½, rï¿½cupï¿½rer l' ID de l'utilisateru
+                // Si un enregistrement est trouvé, récupérer l' ID de l'utilisateru
                 if (resultSet.next()) {
                     IDUtilisateur = resultSet.getInt("UserID");
                 }

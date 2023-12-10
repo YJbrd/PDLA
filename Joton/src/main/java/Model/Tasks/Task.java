@@ -32,11 +32,11 @@ public class Task {
 	}**/
 	
 	public boolean isValidated() {
-		//ajouter conditions spÃ©cifiques
+		//ajouter conditions spécifiques
 		return false;
 	}
 	
-	// Mï¿½thode pour enregistrer une nouvelle tÃ¢che
+	// Méthode pour enregistrer une nouvelle tÃ¢che
 		public static void createNewTask(String description, int UserID, String dateLimite) {
 
 		    String query = "INSERT INTO Task (ProprioID, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
@@ -44,21 +44,21 @@ public class Task {
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
 		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-		        // Paramï¿½trer les valeurs
+		        // Paramétrer les valeurs
 		        preparedStatement.setString(2, description);
 		        preparedStatement.setInt(1, UserID);
 		        //preparedStatement.setString(3,"idle");
 		        preparedStatement.setString(3, dateLimite);
 		        
 
-		        // Exï¿½cuter la requï¿½te
+		        // Exécuter la requête
 		        int rowCount = preparedStatement.executeUpdate();
 
-		        // Vï¿½rifier si l'enregistrement a rï¿½ussi
+		        // Vérifier si l'enregistrement a réussi
 		        if (rowCount > 0) {
-		            System.out.println("Tache enregistrÃ©e ! Quelqu'un va bientÃ´t venir vous aider");
+		            System.out.println("Tâche enregistrée ! Quelqu'un va bientôt venir vous aider");
 		        } else {
-		            System.out.println("Echec de l'enregistrement de la tÃ¢che Veuillez rï¿½essayer.");
+		            System.out.println("Échec de l'enregistrement de la tâche. Veuillez réessayer.");
 		        }
 
 		    } catch (SQLException e) {

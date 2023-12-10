@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.ModuleLayer.Controller;
 
 public class FrameMain extends JFrame {
 
@@ -28,7 +29,7 @@ public class FrameMain extends JFrame {
         //liste des demandes
         listeDemandesModel = new DefaultListModel<>();
 
-        // En-tï¿½te de la page
+        // En-tête de la page
         JPanel headerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         labelUtilisateur = new JLabel("Pseudo: " + pseudoUtilisateur);
         labelTypeUtilisateur = new JLabel("Type d'Utilisateur: " + typeUtilisateur);
@@ -43,12 +44,9 @@ public class FrameMain extends JFrame {
                 
                 SwingUtilities.invokeLater(() -> new FrameFormTask(pseudoUtilisateur));
 
-                // Vous pouvez ouvrir une nouvelle fenï¿½tre de crï¿½ation de demande, par exemple
             }
         });
         
-        
-
 
         // Agencement global avec GridBagLayout
         JPanel mainPanel = new JPanel(new GridBagLayout());
@@ -71,7 +69,7 @@ public class FrameMain extends JFrame {
 
         setVisible(true);
         
-      //Bouton qui affiche la liste des demandes en cours
+      // Bouton qui affiche la liste des demandes en cours
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

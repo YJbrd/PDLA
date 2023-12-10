@@ -18,7 +18,7 @@ public class Welcome extends JFrame {
     private static final long serialVersionUID = -4939544011287453046L;
     
     JButton login = new JButton( "Me connecter" );
-    JButton register = new JButton( "CrÃ©er un nouveau profil" );
+    JButton register = new JButton( "Créer un nouveau profil" );
 
 
 
@@ -54,10 +54,10 @@ public class Welcome extends JFrame {
     }
     
     public static void main(String[] args) throws Exception {
-        // Apply a look'n feel
+        // appliquer le "look and feel"
         UIManager.setLookAndFeel( new NimbusLookAndFeel() );
         
-        // Start my window
+        // Lancer la fenêtre 
         Welcome myWindow = new Welcome();
         myWindow.setVisible( true );
     } 

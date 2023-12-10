@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import com.mysql.cj.jdbc.*;
 import com.mysql.cj.x.protobuf.MysqlxExpect.Open.Condition;
 
+@SuppressWarnings("unused")
 public class ConnexionDataBase {
 	
 	private static Connection con = null; 
