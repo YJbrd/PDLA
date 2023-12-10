@@ -72,14 +72,23 @@ public class FrameMain extends JFrame {
 
         setVisible(true);
         
+        int IDUtilisateur = LogIn.getIDUtilisateur(pseudoUtilisateur);
+        listeDemandesModel= DataUsers.getTasksList(IDUtilisateur);
+        //System.out.println(listeDemandesModel);
+        listeDemandes= new JList<>(listeDemandesModel);
+        //System.out.println(listeDemandes);
+        scrollPane = new JScrollPane(listeDemandes);
+        
       // Bouton qui affiche la liste des demandes en cours
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	listeDemandesModel.removeAllElements();
                 int IDUtilisateur = LogIn.getIDUtilisateur(pseudoUtilisateur);
                 listeDemandesModel= DataUsers.getTasksList(IDUtilisateur);
-                listeDemandes= new JList<>(listeDemandesModel);
-                scrollPane = new JScrollPane(listeDemandes);
+                System.out.println(listeDemandesModel);
+            	listeDemandes.setModel(listeDemandesModel);
+            	scrollPane.setViewportView(listeDemandes);
             }
         });
         
