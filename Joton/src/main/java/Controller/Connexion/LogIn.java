@@ -22,7 +22,7 @@ public class LogIn{
 
             // Vérifier si l'utilisateur existe dans la base de données
             if (resultSet.next()) {
-                System.out.println("Connexion réussie !");
+                System.out.println("Connexion utilisateur réussie !");
                 return true;
             } else {
                 System.out.println("Échec de la connexion. Veuillez vérifier vos informations d'identification.");

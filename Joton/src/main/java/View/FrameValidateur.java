@@ -8,7 +8,7 @@ import Controller.Connexion.*;
 import Controller.DataUser.*;
 import Model.Tasks.*;
 
-public class FrameBenevole extends JFrame {
+public class FrameValidateur extends JFrame {
 
     private JLabel labelUtilisateur;
     private JLabel labelTypeUtilisateur;
@@ -23,7 +23,7 @@ public class FrameBenevole extends JFrame {
     private JComboBox<String> dropdownMenu;
 
 
-    public FrameBenevole(String pseudoUtilisateur, String typeUtilisateur) {
+    public FrameValidateur(String pseudoUtilisateur, String typeUtilisateur) {
         setTitle("Page Principale");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +43,7 @@ public class FrameBenevole extends JFrame {
         JPanel userInputPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         userInputField = new JTextField(10);
         validationButton = new JButton("Valider");
-        dropdownMenu = new JComboBox<>(new String[]{"Effectuée", "En cours", "Non effectuable"});
+        dropdownMenu = new JComboBox<>(new String[]{"Valide", "Invalide"});
 
         userInputPanel.add(new JLabel("Entrée Utilisateur:"));
         userInputPanel.add(userInputField);
@@ -98,7 +98,7 @@ public class FrameBenevole extends JFrame {
                 
                 String selectedOption = (String) dropdownMenu.getSelectedItem();
                 String StatusTask = selectedOption;
-                Task.updateStatus(numTask, StatusTask);
+                Task.updateValidation(numTask, StatusTask);
             }
         });
 

@@ -60,7 +60,6 @@ public class DataUsers {
 	            	String desc = resultSet.getString("Description");
 	            	int num = resultSet.getInt("ID_Task"); 
 	            	queryResultat = num +" - " + desc;
-	            	System.out.println(queryResultat);
                 	listeDemandesModel.addElement(queryResultat);
                 }
             }

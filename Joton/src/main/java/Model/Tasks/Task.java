@@ -42,7 +42,7 @@ public class Task {
 		    String query = "INSERT INTO Task (ProprioID, Description, DateLimite) VALUES (?, ?, ?)";		//IDLE,
 		    
 		    try (Connection connection = ConnexionDataBase.getConnexionDataBase();
-		         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+		        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
 		        // Paramétrer les valeurs
 		        preparedStatement.setString(2, description);
@@ -68,24 +68,39 @@ public class Task {
 		
 		public static void updateStatus(int taskId, String newStatus) {
 	        String query = "UPDATE Task SET Status = ? WHERE ID_Task = ?";
-
 	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
-	             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+	            PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-	            // Paramétrer les valeurs
 	            preparedStatement.setString(1, newStatus);
 	            preparedStatement.setInt(2, taskId);
 
-	            // Exécuter la requête de mise à jour
 	            int rowCount = preparedStatement.executeUpdate();
 
-	            // Vérifier si la mise à jour a réussi
 	            if (rowCount > 0) {
 	                System.out.println("Mise à jour du status réussie !");
 	            } else {
 	                System.out.println("Échec de la mise à jour du status. La demande pourrait ne pas exister.");
 	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+		
+		public static void updateValidation(int taskId, String newValidation) {
+	        String query = "UPDATE Task SET Validation = ? WHERE ID_Task = ?";
+	        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+	            PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
+	            preparedStatement.setString(1, newValidation);
+	            preparedStatement.setInt(2, taskId);
+
+	            int rowCount = preparedStatement.executeUpdate();
+
+	            if (rowCount > 0) {
+	                System.out.println("Mise à jour de la validation réussie !");
+	            } else {
+	                System.out.println("Échec de la mise à jour de la validation. La demande pourrait ne pas exister.");
+	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }

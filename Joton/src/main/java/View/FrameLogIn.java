@@ -38,7 +38,7 @@ public class FrameLogIn extends JFrame {
                     } else if ("Benevole".equals(typeUtilisateur)) {
                     	SwingUtilities.invokeLater(() -> new FrameBenevole(pseudo, typeUtilisateur));
                     } else if ("Validateur".equals(typeUtilisateur)) {
-                    	SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                    	SwingUtilities.invokeLater(() -> new FrameValidateur(pseudo, typeUtilisateur));
                     }
                 	                
                 }else {
