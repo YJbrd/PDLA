@@ -33,7 +33,14 @@ public class FrameLogIn extends JFrame {
                 con=Controller.Connexion.LogIn.seConnecter(pseudo, motDePasse);
                 String typeUtilisateur = Controller.Connexion.LogIn.getTypeUtilisateur(pseudo);
                 if(con==true) {
-                    SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                	if ("Vulnerable".equals(typeUtilisateur)) {
+                		SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                    } else if ("Benevole".equals(typeUtilisateur)) {
+                    	SwingUtilities.invokeLater(() -> new FrameBenevole(pseudo, typeUtilisateur));
+                    } else if ("Validateur".equals(typeUtilisateur)) {
+                    	SwingUtilities.invokeLater(() -> new FrameMain(pseudo, typeUtilisateur));
+                    }
+                	                
                 }else {
                 	System.out.println("Votre mot de passe ou votre identifiant n'est pas valide");
                 }
@@ -46,11 +53,9 @@ public class FrameLogIn extends JFrame {
         panel.add(new JLabel("Mot de Passe:"));
         panel.add(motDePasseField);
         panel.add(boutonConnexion);
-
         add(panel);
 
         setVisible(true);
     }
-
     
 }

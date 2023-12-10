@@ -13,7 +13,7 @@ import Controller.Connexion.ConnexionDataBase;
 public class DataUsers {
 	
 	private static String queryDemandes= null;
-	private static String queryResultat= "Vous n'avez enregistrï¿½ aucune demande d'aide";
+	private static String queryResultat= "Vous n'avez enregistré aucune demande d'aide";
 
 	
 	private static DefaultListModel<String> listeDemandesModel=new DefaultListModel<>();
@@ -25,15 +25,14 @@ public class DataUsers {
 
         try (Connection connection = ConnexionDataBase.getConnexionDataBase();
             PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)){;
-	        // Paramï¿½trer la valeur du nom d'utilisateur
+	        // Paramétrer la valeur du nom d'utilisateur
 	        preparedStatement.setInt(1, IDUser);
 
-
-            // Exï¿½cuter la requï¿½te
+            // Exécuter la requête
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 
                 while (resultSet.next()) {
-                	// Si un enregistrement est trouvï¿½, rï¿½cupï¿½rer les tï¿½ches enregistrï¿½es
+                	// Si un enregistrement est trouvé, récupérer les tâches enregistrées
 	            	queryResultat = resultSet.getString("Description");
 	            	System.out.println(queryResultat);
                 	listeDemandesModel.addElement(queryResultat);
@@ -47,6 +46,30 @@ public class DataUsers {
 
     }	
        
+	public static DefaultListModel<String> getTasksListAll(){
+				
+		queryDemandes = "SELECT * FROM Task";
+
+        try (Connection connection = ConnexionDataBase.getConnexionDataBase();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryDemandes)){;
+
+            // Exécuter la requï¿½te
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                
+                while (resultSet.next()) {
+	            	queryResultat = resultSet.getString("Description");
+	            	System.out.println(queryResultat);
+                	listeDemandesModel.addElement(queryResultat);
+                }
+            }
+        } catch (SQLException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+        }
+		return listeDemandesModel;
+
+    }
+	
 }
 
         
